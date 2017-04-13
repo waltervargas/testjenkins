@@ -1,3 +1,5 @@
+def git_url = GIT_URL
+
 freeStyleJob('deploy-infrastructure') {
   logRotator(-1,100)
   parameters {
@@ -8,7 +10,7 @@ freeStyleJob('deploy-infrastructure') {
     git {
       branch('master')
       remote {
-        github(SEED_JOB.GIT_URL, 'ssh')
+        github(git_url, 'ssh')
         //credentials('Github-Credentials')
       }
     }
